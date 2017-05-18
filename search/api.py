@@ -9,7 +9,7 @@ from .result_processor import SearchResultProcessor
 from .utils import DateRange
 
 # Default filters that we support, override using COURSE_DISCOVERY_FILTERS setting if desired
-DEFAULT_FILTER_FIELDS = ["org", "modes", "language"]
+DEFAULT_FILTER_FIELDS = ["affiliate_name", "location_state", "delivery_mode", "location_city", "start"]
 
 
 def course_discovery_filter_fields():
