@@ -9,7 +9,7 @@ from .result_processor import SearchResultProcessor
 from .utils import DateRange
 
 # Default filters that we support, override using COURSE_DISCOVERY_FILTERS setting if desired
-DEFAULT_FILTER_FIELDS = ["affiliate_name", "location_state", "delivery_mode", "location_city", "start"]
+DEFAULT_FILTER_FIELDS = ["affiliate_name", "location_state", "delivery_mode", "location_city", "start", "enrollment_type"]
 
 
 def course_discovery_filter_fields():
@@ -19,7 +19,7 @@ def course_discovery_filter_fields():
 
 def course_discovery_facets():
     """ Discovery facets to include, by default we specify each filter field with unspecified size attribute """
-    return getattr(settings, "COURSE_DISCOVERY_FACETS", {field: {} for field in course_discovery_filter_fields()})
+    return getattr(settings, "COURSE_DISCOVERY_FACETS", {field: {} for field in course_discovery_filter_fields() if field != "enrollment_type"})
 
 
 class NoSearchEngineError(Exception):
